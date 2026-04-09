@@ -22,7 +22,6 @@ public partial class MainWindow : Window
 
             if (xFrom >= xTo)
             {
-                // "X od" < "X do"
                 return;
             }
 
