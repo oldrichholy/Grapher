@@ -2,8 +2,43 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.Avalonia;assembly=ScottPlot.Avalonia"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="400"
         x:Class="Grapher.MainWindow"
         Title="Grapher">
-    Welcome to Avalonia!
+    
+        <Grid>
+                <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+        
+                <StackPanel Grid.Column="0" Margin="20" Spacing="8" VerticalAlignment="Top">
+    
+                        <TextBlock Text="Funkce" FontSize="11" Foreground="Gray"/>
+                        <ComboBox x:Name="FunctionPicker" SelectedIndex="0" HorizontalAlignment="Stretch">
+                                <ComboBoxItem>Lineární</ComboBoxItem>
+                                <ComboBoxItem>Kvadratická</ComboBoxItem>
+                                <ComboBoxItem>Sinus</ComboBoxItem>
+                                <ComboBoxItem>Kosinus</ComboBoxItem>
+                        </ComboBox>
+
+                        <Separator Margin="0,8"/>
+
+                        <TextBlock Text="X od" FontSize="11" Foreground="Gray"/>
+                        <TextBox x:Name="XFromInput" Text="-10"/>
+
+                        <TextBlock Text="X do" FontSize="11" Foreground="Gray"/>
+                        <TextBox x:Name="XToInput" Text="10"/>
+
+                        <Button Content="Generovat" Click="OnGenerateClick"
+                                HorizontalAlignment="Stretch" Margin="0,12,0,0"/>
+
+                </StackPanel>
+        
+                <ScottPlot:AvaPlot Grid.Column="1" x:Name="MyPlot"/>
+        
+        </Grid>
+        
+        
 </Window>
