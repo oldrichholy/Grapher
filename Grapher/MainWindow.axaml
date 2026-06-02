@@ -13,33 +13,38 @@
                         <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
         
-                <StackPanel Grid.Column="0" Margin="20" Spacing="8" VerticalAlignment="Top">
+                <DockPanel Grid.Column="0" Margin="12">
     
-                        <TextBlock Text="Funkce" FontSize="11" Foreground="Gray"/>
-                        <ComboBox x:Name="FunctionPicker" SelectedIndex="0" HorizontalAlignment="Stretch">
-                                <ComboBoxItem>Lineární</ComboBoxItem>
-                                <ComboBoxItem>Kvadratická</ComboBoxItem>
-                                <ComboBoxItem>Sinus</ComboBoxItem>
-                                <ComboBoxItem>Kosinus</ComboBoxItem>
-                        </ComboBox>
+                        <Button Content="Exportovat CSV" 
+                                Click="OnExportCsvClick"
+                                DockPanel.Dock="Bottom"
+                                HorizontalAlignment="Left" 
+                                Margin="0,0,0,0"/>
 
-                        <Separator Margin="0,8"/>
+                        <StackPanel Spacing="8" VerticalAlignment="Top">
+                                <TextBlock Text="Funkce" FontSize="11" Foreground="Gray"/>
+                                <ComboBox x:Name="FunctionPicker" SelectedIndex="0" HorizontalAlignment="Stretch">
+                                        <ComboBoxItem>Lineární</ComboBoxItem>
+                                        <ComboBoxItem>Kvadratická</ComboBoxItem>
+                                        <ComboBoxItem>Sinus</ComboBoxItem>
+                                        <ComboBoxItem>Kosinus</ComboBoxItem>
+                                </ComboBox>
 
-                        <TextBlock Text="X od" FontSize="11" Foreground="Gray"/>
-                        <TextBox x:Name="XFromInput" Text="-10"/>
+                                <Separator Margin="0,8"/>
 
-                        <TextBlock Text="X do" FontSize="11" Foreground="Gray"/>
-                        <TextBox x:Name="XToInput" Text="10"/>
+                                <TextBlock Text="X od" FontSize="11" Foreground="Gray"/>
+                                <TextBox x:Name="XFromInput" Text="-10"/>
 
-                        <Button Content="Generovat" Click="OnGenerateClick"
-                                HorizontalAlignment="Stretch" Margin="0,12,0,0" Background="MediumSeaGreen"/>
-                        
-                        <Button Content="Exportovat CSV" Click="OnExportCsvClick"
-                                HorizontalAlignment="Stretch" Margin="0,2,0,0"/>
+                                <TextBlock Text="X do" FontSize="11" Foreground="Gray"/>
+                                <TextBox x:Name="XToInput" Text="10"/>
 
-                </StackPanel>
+                                <Button Content="Generovat" Click="OnGenerateClick"
+                                        HorizontalAlignment="Stretch" Margin="0,12,0,0" Background="MediumSeaGreen"/>
+                        </StackPanel>
+    
+                </DockPanel>
         
-                <ScottPlot:AvaPlot Grid.Column="1" x:Name="MyPlot"/>
+                <ScottPlot:AvaPlot Grid.Column="1" x:Name="MyPlot" Margin="12"/>
         
         </Grid>
         
