@@ -39,5 +39,6 @@
                 <ScottPlot:AvaPlot Grid.Column="1" x:Name="MyPlot"/>
         
         </Grid>
-              
+        
+        
 </Window>
